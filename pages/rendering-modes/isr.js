@@ -20,18 +20,8 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       title: "Incremental Static Regeneration (ISR)",
-      description: `This page ("/${
-        params.slug
-      }") was rendered dynamically at build time, and will be regenerated at run time every 30 seconds (exports \`getStaticProps\` function with \`revalidate\` set to 30).\nLast updated at ${new Date()}`,
+      description: `This page was rendered dynamically at build time, and will be regenerated at run time every 30 seconds (exports \`getStaticProps\` function with \`revalidate\` set to 30).\nLast updated at ${new Date()}`,
     },
     revalidate: 30,
-  };
-}
-
-export function getStaticPaths() {
-  console.log("isr::getStaticPaths");
-  return {
-    paths: ["/rendering-modes/isr"],
-    fallback: "blocking",
   };
 }
